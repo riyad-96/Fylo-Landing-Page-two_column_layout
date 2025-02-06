@@ -1,0 +1,114 @@
+:root{
+  --clr-error: red;
+  --clr-success: black;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-section form{
+  position: relative;
+}
+
+input {
+  outline: none;
+  font-size: 0.9rem;
+  border: 1px solid hsl(0, 0%, 60%);
+  border-radius: 3px;
+  padding: 0.6rem 1rem 0.5rem 1rem;
+  box-shadow: 0 2px 5px hsl(0, 0%, 0%, 0.2);
+
+  &::placeholder {
+    font-size: 0.8rem;
+    color: hsl(0, 0%, 77%);
+  }
+
+}
+
+
+button {
+  border: none;
+  padding-block: 0.7rem;
+  padding-inline: 3.5rem;
+  color: #fff;
+  background-color: var(--Accent-Bright-Blue);
+  cursor: pointer;
+  border-radius: 3px;
+  transition: 100ms;
+  box-shadow: 0 2px 5px hsl(0, 0%, 0%, 0.2);
+
+  &:hover {
+    background-color: hsl(221, 100%, 71%);
+  }
+
+  &:active {
+    background-color: hsl(221, 100%, 76%);
+  }
+}
+
+.hero-section span{
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  font-size: 0.8rem;
+  color: var(--clr-error);
+  display: none;
+
+  @media (width < 750px) {
+    bottom: 45px;
+  }
+}
+
+.early-access-section form{
+  position: relative;
+}
+
+.early-access-section span{
+  position: absolute;
+  left: 0;
+  bottom: 45px;
+  font-size: 0.8rem;
+  display: none;
+}
+
+input:focus{
+  border: 1px solid var(--clr-success);
+}
+
+input:focus:not(:placeholder-shown):invalid{
+  border: 1px solid red;
+}
+
+input:not(:placeholder-shown):invalid + span{
+  display: block;
+}
+
+
+@media (width > 775px) {
+
+  form{
+    flex-direction: row;
+    justify-content: flex-start;
+
+    input{
+      inline-size: 60%;
+    }
+    button{
+      inline-size: 40%;
+      padding-inline: 0;
+    }
+  }
+
+  .early-access-section form{
+    flex-direction: column;
+    max-inline-size: 100%;
+
+    input{
+      inline-size: 90%;
+    }
+  }
+}
